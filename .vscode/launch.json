@@ -1,0 +1,21 @@
+{
+    // For Skyrim Special Edition
+    // Assumes install and proper config of Papyrus VSCode extension (by Joel Day)
+    // Also requires install of the SKSE64 plugin:
+    //      C:\Users\<your-username>\.vscode\extensions\joelday.papyrus-lang-vscode-2.17.0\debug-plugin\DarkId.Papyrus.DebugServer.Skyrim.dll
+    // In
+    //      <skyrimdir>\Data\SKSE\Plugins
+
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Skyrim",
+            "type": "papyrus",
+            "request": "attach",
+            "game": "skyrimSpecialEdition"
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    // For Skyrim Special Edition
+    // Assumes install and proper config of Papyrus VSCode extension (by Joel Day)
+    // And use of Mod Organizer 2's usvfs
+    // See https://www.nexusmods.com/skyrimspecialedition/mods/29491
+    // for full usage guide and project template.
+
+    // Set your mod/plugin project folder up like this:
+    //      ./                      (the workspace base folder)
+    //      ./yourpluginname.code-workspace (can be a default workspace file)
+    //      ./.vscode/tasks.json    (this file)
+    //      ./Scripts               (.pex files)
+    //      ./Source/Scripts        (.psc files)
+    // Rest doesn't matter as far as this build config goes. Can be game data etc.
+    // Hit Shift-Ctrl-B to rebuild all and compile into ./Scripts subdir 
+
+    // For other games change ${config:papyrus.skyrimSpecialEdition.installPath} to ...
+    //    - Fallout 4: ${config:papyrus.fallout4.installPath}
+    //    - Oldrim: ${config:papyrus.skyrim.installPath}
+    // And update "-f=TESV_Papyrus_Flags.flg" to the appropriate filename
+
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile Papyrus (All)",
+            "type": "process",
+            "command": "${config:papyrus.skyrimSpecialEdition.installPath}\\Papyrus Compiler\\PapyrusCompiler.exe",
+            "args": [ 
+                "Source\\Scripts",
+                "-i=Source\\Scripts;${config:papyrus.skyrimSpecialEdition.installPath}\\Data\\Source\\Scripts",
+                "-o=Scripts",
+                "-f=TESV_Papyrus_Flags.flg",
+                "-all",
+                ],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true,
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": {
+                "owner": "external",
+                "fileLocation": "absolute",
+                "pattern": {
+                  "regexp": "^(.*)\\((\\d+),(\\d+)\\):(.*)",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "message": 4,
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+	// See https://www.nexusmods.com/skyrimspecialedition/mods/29491 for usage guide.
+
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	
+	"extensions": {
+		"recommendations": [
+			"joelday.papyrus-lang-vscode",
+			"usernamehw.errorlens",
+		]
+	}
+}
